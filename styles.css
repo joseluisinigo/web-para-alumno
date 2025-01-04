@@ -109,6 +109,58 @@ footer {
     margin: 5px;
 }
 
+/* Línea morada que recorre todo el ancho */
+.linea-morada {
+    border: none;
+    height: 2px;
+    background-color: #8b0000; /* Color morado */
+    margin: 20px 0;
+}
+
+/* Ingredientes tabulados con puntos de relleno */
+.ingredientes-tabla {
+    width: 100%;
+    border-spacing: 0 10px;
+    margin: 10px 0;
+}
+
+.ingredientes-tabla td {
+    padding: 5px 10px;
+    font-size: 1rem;
+    vertical-align: top;
+}
+
+.ingredientes-tabla .descripcion {
+    font-weight: bold;
+    text-align: left;
+    position: relative;
+}
+
+.ingredientes-tabla .descripcion::after {
+    content: "...............................................................................................";
+    color: #ccc;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: right;
+    z-index: 0;
+}
+
+.ingredientes-tabla .cantidad {
+    font-weight: bold;
+    text-align: right;
+    position: relative;
+    z-index: 1;
+    background-color: #f4f4f9; /* Fondo para tapar puntos detrás */
+    padding-left: 5px;
+}
+/* Títulos en negritas */
+.negrita {
+    font-weight: bold;
+    text-transform: uppercase; /* Opcional: mayúsculas */
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     header {
@@ -122,5 +174,9 @@ footer {
 
     main {
         padding: 10px;
+    }
+
+    .ingredientes-tabla .descripcion::before {
+        display: none; /* Oculta los puntos en pantallas pequeñas */
     }
 }

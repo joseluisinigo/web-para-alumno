@@ -8,15 +8,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 imagen: "./images/pisto-manchego.jpg",
                 audio: "./audios/pisto-manchego.mp3",
                 ingredientes: [
-                    "4 tomates hermosos",
-                    "250 g de cebolla picada",
-                    "200 g de pimiento verde",
-                    "200 g de pimiento rojo",
-                    "2 dientes de ajo",
-                    "300 g de calabacín",
-                    "Aceite de oliva virgen extra",
-                    "Pimienta negra molida",
-                    "Sal"
+                    { nombre: "Tomates hermosos", cantidad: "4" },
+                    { nombre: "Cebolla picada", cantidad: "250 g" },
+                    { nombre: "Pimiento verde", cantidad: "200 g" },
+                    { nombre: "Pimiento rojo", cantidad: "200 g" },
+                    { nombre: "Dientes de ajo", cantidad: "2" },
+                    { nombre: "Calabacín", cantidad: "300 g" },
+                    { nombre: "Aceite de oliva virgen extra", cantidad: "" },
+                    { nombre: "Pimienta negra molida", cantidad: "" },
+                    { nombre: "Sal", cantidad: "" }
                 ],
                 pasos: [
                     "Lava y corta todas las verduras en trozos pequeños.",
@@ -34,9 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 imagen: "./images/patatas-fritas.jpg",
                 audio: "./audios/patatas-fritas.mp3",
                 ingredientes: [
-                    "3 ó 4 patatas",
-                    "Aceite de oliva",
-                    "Sal"
+                    { nombre: "Patatas", cantidad: "3 ó 4" },
+                    { nombre: "Aceite de oliva", cantidad: "" },
+                    { nombre: "Sal", cantidad: "" }
                 ],
                 pasos: [
                     "Pela las patatas y córtalas en tiras.",
@@ -53,14 +53,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 imagen: "./images/gazpacho.jpg",
                 audio: "./audios/gazpacho.mp3",
                 ingredientes: [
-                    "1 kg de tomates maduros",
-                    "1 pepino",
-                    "1 pimiento verde",
-                    "1 diente de ajo",
-                    "50 g de pan duro",
-                    "100 ml de aceite de oliva virgen extra",
-                    "30 ml de vinagre de vino",
-                    "Sal al gusto"
+                    { nombre: "Tomates maduros", cantidad: "1 kg" },
+                    { nombre: "Pepino", cantidad: "1" },
+                    { nombre: "Pimiento verde", cantidad: "1" },
+                    { nombre: "Diente de ajo", cantidad: "1" },
+                    { nombre: "Pan duro", cantidad: "50 g" },
+                    { nombre: "Aceite de oliva virgen extra", cantidad: "100 ml" },
+                    { nombre: "Vinagre de vino", cantidad: "30 ml" },
+                    { nombre: "Sal", cantidad: "al gusto" }
                 ],
                 pasos: [
                     "Lava los tomates, el pepino y el pimiento.",
@@ -77,11 +77,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 imagen: "./images/tortilla-patatas.jpg",
                 audio: "./audios/tortilla-patatas.mp3",
                 ingredientes: [
-                    "5 patatas medianas",
-                    "6 huevos",
-                    "1 cebolla (opcional)",
-                    "Aceite de oliva",
-                    "Sal al gusto"
+                    { nombre: "Patatas medianas", cantidad: "5" },
+                    { nombre: "Huevos", cantidad: "6" },
+                    { nombre: "Cebolla (opcional)", cantidad: "1" },
+                    { nombre: "Aceite de oliva", cantidad: "" },
+                    { nombre: "Sal", cantidad: "al gusto" }
                 ],
                 pasos: [
                     "Pela las patatas y córtalas en rodajas finas.",
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         ]
     };
-
+    
     const currentPage = window.location.pathname;
 
     if (currentPage.includes("index.html") || currentPage === "/") {
@@ -138,32 +138,65 @@ function mostrarDetalle(receta) {
 
     const container = document.getElementById("content");
 
+    // Imagen de la receta
     const image = document.createElement("img");
     image.setAttribute("src", receta.imagen);
     image.setAttribute("alt", receta.nombre);
     image.classList.add("detalle-imagen");
     container.appendChild(image);
 
+    // Botón de audio (SVG personalizado)
     const audioLink = document.createElement("a");
     audioLink.setAttribute("href", receta.audio);
     audioLink.classList.add("audio-link");
-    audioLink.innerHTML = `<img src="./images/play-icon.png" alt="Icono de Play" class="audio-icon"> Escucha la receta`;
+    audioLink.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="20" height="20" class="audio-icon">
+            <circle cx="32" cy="32" r="30" fill="#8b0000" />
+            <polygon points="25,18 50,32 25,46" fill="#ffffff" />
+        </svg>
+        Escucha la receta
+    `;
     container.appendChild(audioLink);
 
+    // Línea morada antes de "Ingredientes"
+    const hr = document.createElement("hr");
+    hr.classList.add("linea-morada");
+    container.appendChild(hr);
+
+    // Título "Ingredientes" en negritas
     const ingredientesTitle = document.createElement("h2");
     ingredientesTitle.textContent = "Ingredientes";
+    ingredientesTitle.classList.add("negrita");
     container.appendChild(ingredientesTitle);
 
-    const ingredientesList = document.createElement("ul");
-    receta.ingredientes.forEach(ingrediente => {
-        const li = document.createElement("li");
-        li.textContent = ingrediente;
-        ingredientesList.appendChild(li);
-    });
-    container.appendChild(ingredientesList);
+    // Tabla de ingredientes con puntos y alineación
+    const ingredientesTable = document.createElement("table");
+    ingredientesTable.classList.add("ingredientes-tabla");
 
+    receta.ingredientes.forEach(ingrediente => {
+        const row = document.createElement("tr");
+    
+        const descripcion = document.createElement("td");
+        descripcion.textContent = ingrediente.nombre; // Nombre del ingrediente
+        descripcion.classList.add("descripcion");
+        row.appendChild(descripcion);
+    
+        const cantidad = document.createElement("td");
+        cantidad.textContent = ingrediente.cantidad; // Cantidad o unidades
+        cantidad.classList.add("cantidad");
+        row.appendChild(cantidad);
+    
+        ingredientesTable.appendChild(row);
+    });
+    
+    
+
+    container.appendChild(ingredientesTable);
+
+    // Pasos de elaboración
     const pasosTitle = document.createElement("h2");
     pasosTitle.textContent = "Elaboración";
+    pasosTitle.classList.add("negrita");
     container.appendChild(pasosTitle);
 
     const pasosList = document.createElement("ol");
