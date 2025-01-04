@@ -217,3 +217,228 @@ footer {
         display: none; /* Oculta los puntos en pantallas pequeñas */
     }
 }
+
+
+/* Modo oscuro */
+body.dark {
+    background-color: #333;
+    color: #f4f4f9;
+}
+
+header.dark {
+    background-color: #444;
+}
+
+footer.dark {
+    background-color: #444;
+}
+
+/* Botón de modo oscuro */
+#theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    color: inherit;
+    position: absolute;
+    top: 9px;
+    right: 242px;
+}
+
+/* Controles de tamaño de texto */
+.text-size-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.text-size-controls button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #8b0000;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.text-size-controls button:hover {
+    background-color: #a50000;
+    transform: scale(1.1);
+}
+
+
+/* Modo oscuro */
+body.dark {
+    background-color: #333; /* Fondo oscuro */
+    color: #f4f4f9; /* Texto claro */
+}
+
+header.dark, footer.dark {
+    background-color: #444; /* Fondo más oscuro para el header y footer */
+}
+
+.dark .ingredientes-tabla .descripcion::after {
+    color: #666; /* Puntos menos brillantes */
+}
+
+.dark .card h2, 
+.dark .negrita, 
+.dark table td {
+    color: #f4f4f9; /* Texto claro */
+}
+
+/* Ajustes para audio player */
+.dark audio {
+    background-color: #444; /* Fondo oscuro para el reproductor */
+    color: #f4f4f9; /* Texto claro en controles */
+}
+
+/* Botones y enlaces */
+.dark button,
+.dark a {
+    color: #f4f4f9 !important;
+}
+
+/* Asegura el contraste en el fondo del texto */
+.dark .ingredientes-tabla .cantidad {
+    background-color: #444; /* Fondo que contraste con los puntos */
+}
+
+.ingredientes-tabla .descripcion::after {
+    content: "...............................................................................................";
+    color: #ccc;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: right;
+    z-index: 0;
+}
+
+/* Oculta los puntos si no hay cantidad */
+.ingredientes-tabla .cantidad:empty + .descripcion::after {
+    content: "";
+}
+
+
+/* Modo oscuro para tarjetas */
+body.dark .card {
+    background-color: #444; /* Fondo más oscuro para las tarjetas */
+    color: #f4f4f9; /* Texto claro */
+}
+
+body.dark .card h2 {
+    color: #f4f4f9; /* Títulos legibles */
+}
+
+/* Mejora el contraste al pasar el ratón por las tarjetas */
+body.dark .card:hover {
+    background-color: #555; /* Fondo ligeramente más claro al hacer hover */
+}
+
+
+/* General */
+body.dark {
+    background-color: #333;
+    color: #f4f4f9; /* Contraste alto en texto */
+}
+
+body.dark h1, body.dark h2, body.dark h3 {
+    color: #f4f4f9 !important; /* Títulos blanco */
+}
+
+/* Mejorar contraste de los botones y enlaces */
+body.dark a {
+    color: #1e90ff; /* Azul claro para destacar enlaces */
+}
+
+body.dark a:hover {
+    color: #63a4ff; /* Azul más brillante al pasar el ratón */
+}
+
+
+/* Contenedor de los controles */
+.text-size-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column; /* Los elementos se apilan verticalmente */
+    align-items: center;
+    gap: 10px; /* Espaciado entre botones */
+    z-index: 1000;
+}
+
+/* Botones */
+.text-size-controls button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: black;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.text-size-controls button:hover {
+    background-color: black;
+    transform: scale(1.1);
+}
+
+/* Título entre los botones */
+.text-size-controls h3 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #fff;
+    text-align: center;
+}
+
+/* Estilo del título (modo claro por defecto) */
+a.titulo {
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit; /* Hereda el color según el modo (oscuro o claro) */
+    cursor: default; /* Opcional: evita el cursor de mano */
+    display: block; /* Hace que el título sea un bloque */
+    text-align: center; /* Centra el texto */
+    margin: 0; /* Elimina márgenes */
+    padding: 20px 0; /* Espaciado interno */
+}
+
+/* Estilo del texto del título */
+a.titulo h1 {
+    font-size: 2.5rem; /* Tamaño grande para el título */
+    font-weight: bold; /* Negrita */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    margin: 0; /* Elimina márgenes */
+    line-height: 1.2; /* Espaciado entre líneas */
+    color: inherit; /* Hereda el color */
+}
+
+/* Modo claro (por defecto) */
+body {
+    background-color: #f4f4f9; /* Fondo claro */
+    color: #333; /* Texto oscuro */
+}
+
+/* Modo oscuro */
+body.dark {
+    background-color: #333; /* Fondo oscuro */
+    color: #f4f4f9; /* Texto claro */
+}
+
+/* Asegurar que el título herede colores en modo oscuro */
+body.dark a.titulo h1 {
+    color: inherit; /* Hereda el color del cuerpo (texto claro) */
+}

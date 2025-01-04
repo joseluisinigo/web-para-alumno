@@ -107,7 +107,35 @@ document.addEventListener("DOMContentLoaded", function () {
         if (receta) mostrarDetalle(receta);
     }
 
-    
+    // Funcionalidad de modo claro/oscuro
+    const themeToggle = document.getElementById("theme-toggle");
+    const currentTheme = localStorage.getItem("theme") || "light";
+    if (currentTheme === "dark") {
+        document.body.classList.add("dark");
+    }
+
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        const newTheme = document.body.classList.contains("dark") ? "dark" : "light";
+        localStorage.setItem("theme", newTheme);
+    });
+
+    // Ajuste de tamaño del texto
+    const increaseText = document.getElementById("increase-text");
+    const decreaseText = document.getElementById("decrease-text");
+    let currentFontSize = parseInt(window.getComputedStyle(document.body).fontSize);
+
+    increaseText.addEventListener("click", () => {
+        currentFontSize += 2;
+        document.body.style.fontSize = `${currentFontSize}px`;
+    });
+
+    decreaseText.addEventListener("click", () => {
+        if (currentFontSize > 10) {
+            currentFontSize -= 2;
+            document.body.style.fontSize = `${currentFontSize}px`;
+        }
+    });
 });
 
 function mostrarGaleria(recetas) {
@@ -162,19 +190,24 @@ function mostrarDetalle(receta) {
 
     receta.ingredientes.forEach(ingrediente => {
         const row = document.createElement("tr");
-
+    
         const descripcion = document.createElement("td");
         descripcion.textContent = ingrediente.nombre;
         descripcion.classList.add("descripcion");
         row.appendChild(descripcion);
-
+    
         const cantidad = document.createElement("td");
-        cantidad.textContent = ingrediente.cantidad;
+        if (ingrediente.cantidad) {
+            cantidad.textContent = ingrediente.cantidad;
+        } else {
+            cantidad.textContent = ""; // No mostrar nada si está vacío
+        }
         cantidad.classList.add("cantidad");
         row.appendChild(cantidad);
-
+    
         ingredientesTable.appendChild(row);
     });
+    
 
     container.appendChild(ingredientesTable);
 
