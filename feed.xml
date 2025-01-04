@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Recetas Fácil</title>
+        <link>https://web-unidad2.joseluisinigo.work/index.html</link>
+        <atom:link href="https://web-unidad2.joseluisinigo.work/feed.xml" rel="self" type="application/rss+xml" />
+        <description>Un blog de recetas fáciles y deliciosas.</description>
+        <language>es-es</language>
+        <lastBuildDate>Tue, 14 May 2024 10:00:00 GMT</lastBuildDate>
+        <item>
+            <title>Pisto Manchego</title>
+            <link>https://web-unidad2.joseluisinigo.work/receta.html?id=pisto-manchego</link>
+            <description>Delicioso plato tradicional de la cocina española.</description>
+            <pubDate>Tue, 14 May 2024 10:00:00 GMT</pubDate>
+            <guid>https://web-unidad2.joseluisinigo.work/receta.html?id=pisto-manchego</guid>
+        </item>
+        <item>
+            <title>Patatas Fritas</title>
+            <link>https://web-unidad2.joseluisinigo.work/receta.html?id=patatas-fritas</link>
+            <description>Receta clásica de patatas fritas caseras.</description>
+            <pubDate>Tue, 14 May 2024 10:00:00 GMT</pubDate>
+            <guid>https://web-unidad2.joseluisinigo.work/receta.html?id=patatas-fritas</guid>
+        </item>
+        <item>
+            <title>Gazpacho</title>
+            <link>https://web-unidad2.joseluisinigo.work/receta.html?id=gazpacho</link>
+            <description>Una sopa fría refrescante y saludable, perfecta para el verano.</description>
+            <pubDate>Tue, 14 May 2024 10:00:00 GMT</pubDate>
+             <guid>https://web-unidad2.joseluisinigo.work/receta.html?id=gazpacho</guid>
+        </item>
+        <item>
+            <title>Tortilla de Patatas</title>
+            <link>https://web-unidad2.joseluisinigo.work/receta.html?id=tortilla-patatas</link>
+            <description>Un clásico de la cocina española, sencillo y delicioso.</description>
+            <pubDate>Tue, 14 May 2024 10:00:00 GMT</pubDate>
+            <guid>https://web-unidad2.joseluisinigo.work/receta.html?id=tortilla-patatas</guid>
+        </item>
+    </channel>
+</rss>

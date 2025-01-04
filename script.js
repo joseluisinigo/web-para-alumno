@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         ]
     };
-    
+
     const currentPage = window.location.pathname;
 
     if (currentPage.includes("index.html") || currentPage === "/") {
@@ -106,6 +106,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const receta = data.recetas.find(r => r.id === recetaId);
         if (receta) mostrarDetalle(receta);
     }
+
+    
 });
 
 function mostrarGaleria(recetas) {
@@ -138,58 +140,44 @@ function mostrarDetalle(receta) {
 
     const container = document.getElementById("content");
 
-    // Imagen de la receta
     const image = document.createElement("img");
     image.setAttribute("src", receta.imagen);
     image.setAttribute("alt", receta.nombre);
     image.classList.add("detalle-imagen");
     container.appendChild(image);
 
-    // Botón de audio (SVG personalizado)
-    // Reproductor de audio en la página para que no vaya a otra página
     const audioPlayer = document.createElement("audio");
-audioPlayer.setAttribute("controls", ""); // Añade controles para reproducir el audio
-audioPlayer.setAttribute("src", receta.audio); // Enlace al archivo de audio
-audioPlayer.classList.add("audio-player");
-container.appendChild(audioPlayer);
+    audioPlayer.setAttribute("controls", "");
+    audioPlayer.setAttribute("src", receta.audio);
+    audioPlayer.classList.add("audio-player");
+    container.appendChild(audioPlayer);
 
-
-    // Línea morada antes de "Ingredientes"
-    const hr = document.createElement("hr");
-    hr.classList.add("linea-morada");
-    container.appendChild(hr);
-
-    // Título "Ingredientes" en negritas
     const ingredientesTitle = document.createElement("h2");
     ingredientesTitle.textContent = "Ingredientes";
     ingredientesTitle.classList.add("negrita");
     container.appendChild(ingredientesTitle);
 
-    // Tabla de ingredientes con puntos y alineación
     const ingredientesTable = document.createElement("table");
     ingredientesTable.classList.add("ingredientes-tabla");
 
     receta.ingredientes.forEach(ingrediente => {
         const row = document.createElement("tr");
-    
+
         const descripcion = document.createElement("td");
-        descripcion.textContent = ingrediente.nombre; // Nombre del ingrediente
+        descripcion.textContent = ingrediente.nombre;
         descripcion.classList.add("descripcion");
         row.appendChild(descripcion);
-    
+
         const cantidad = document.createElement("td");
-        cantidad.textContent = ingrediente.cantidad; // Cantidad o unidades
+        cantidad.textContent = ingrediente.cantidad;
         cantidad.classList.add("cantidad");
         row.appendChild(cantidad);
-    
+
         ingredientesTable.appendChild(row);
     });
-    
-    
 
     container.appendChild(ingredientesTable);
 
-    // Pasos de elaboración
     const pasosTitle = document.createElement("h2");
     pasosTitle.textContent = "Elaboración";
     pasosTitle.classList.add("negrita");

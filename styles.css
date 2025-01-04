@@ -1,4 +1,4 @@
-/* General Styles */
+/* css página de recetas */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -13,12 +13,49 @@ header {
     color: #fff;
     padding: 20px;
     text-align: center;
+    position: relative; /* Necesario para colocar los iconos */
 }
+
+
+.header-icons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.header-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.header-icon:hover {
+    transform: scale(1.1);
+}
+
+.header-text {
+    font-size: 16px; /* Tamaño del texto */
+    font-weight: bold; /* Negrita para resaltar */
+    color: white; /* Color blanco para que destaque */
+    text-decoration: none; /* Sin subrayado */
+    transition: color 0.2s ease, transform 0.2s ease; /* Efecto al pasar el mouse */
+    cursor: pointer; /* Cambia el cursor al pasar */
+}
+
+.header-text:hover {
+    color: #ccc; /* Cambia a un color más claro al pasar el mouse */
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+}
+
 
 h1, h2 {
     margin: 0 0 10px;
     font-weight: bold;
 }
+
 
 main {
     padding: 20px;
