@@ -146,17 +146,13 @@ function mostrarDetalle(receta) {
     container.appendChild(image);
 
     // Botón de audio (SVG personalizado)
-    const audioLink = document.createElement("a");
-    audioLink.setAttribute("href", receta.audio);
-    audioLink.classList.add("audio-link");
-    audioLink.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="20" height="20" class="audio-icon">
-            <circle cx="32" cy="32" r="30" fill="#8b0000" />
-            <polygon points="25,18 50,32 25,46" fill="#ffffff" />
-        </svg>
-        Escucha la receta
-    `;
-    container.appendChild(audioLink);
+    // Reproductor de audio en la página para que no vaya a otra página
+    const audioPlayer = document.createElement("audio");
+audioPlayer.setAttribute("controls", ""); // Añade controles para reproducir el audio
+audioPlayer.setAttribute("src", receta.audio); // Enlace al archivo de audio
+audioPlayer.classList.add("audio-player");
+container.appendChild(audioPlayer);
+
 
     // Línea morada antes de "Ingredientes"
     const hr = document.createElement("hr");
