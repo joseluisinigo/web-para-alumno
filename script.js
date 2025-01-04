@@ -45,6 +45,53 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Escurre el exceso de aceite y añade sal al gusto.",
                     "Sirve como acompañamiento o snack."
                 ]
+            },
+            {
+                id: "gazpacho",
+                nombre: "Gazpacho",
+                descripcion: "Una sopa fría refrescante y saludable, perfecta para el verano.",
+                imagen: "./images/gazpacho.jpg",
+                audio: "./audios/gazpacho.mp3",
+                ingredientes: [
+                    "1 kg de tomates maduros",
+                    "1 pepino",
+                    "1 pimiento verde",
+                    "1 diente de ajo",
+                    "50 g de pan duro",
+                    "100 ml de aceite de oliva virgen extra",
+                    "30 ml de vinagre de vino",
+                    "Sal al gusto"
+                ],
+                pasos: [
+                    "Lava los tomates, el pepino y el pimiento.",
+                    "Pela el ajo y trocea todos los ingredientes.",
+                    "Añade el pan duro remojado en agua y tritúralo todo con una batidora.",
+                    "Incorpora el aceite, el vinagre y la sal, y mezcla hasta obtener una textura homogénea.",
+                    "Enfría en la nevera durante al menos 2 horas antes de servir."
+                ]
+            },
+            {
+                id: "tortilla-patatas",
+                nombre: "Tortilla de Patatas",
+                descripcion: "Un clásico de la cocina española, sencillo y delicioso.",
+                imagen: "./images/tortilla-patatas.jpg",
+                audio: "./audios/tortilla-patatas.mp3",
+                ingredientes: [
+                    "5 patatas medianas",
+                    "6 huevos",
+                    "1 cebolla (opcional)",
+                    "Aceite de oliva",
+                    "Sal al gusto"
+                ],
+                pasos: [
+                    "Pela las patatas y córtalas en rodajas finas.",
+                    "Pica la cebolla (si la usas).",
+                    "Fríe las patatas y la cebolla en abundante aceite caliente hasta que estén tiernas.",
+                    "Bate los huevos en un bol grande, añade sal y mezcla con las patatas y la cebolla.",
+                    "Vierte la mezcla en una sartén con un poco de aceite y cocina a fuego medio.",
+                    "Dale la vuelta con un plato y cocina por el otro lado hasta que esté dorada.",
+                    "Sirve caliente o a temperatura ambiente."
+                ]
             }
         ]
     };
